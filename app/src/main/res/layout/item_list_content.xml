@@ -10,14 +10,16 @@
         android:layout_width="match_parent"
         android:padding="@dimen/mini_margin"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/tajwal_m"
         android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
         android:id="@+id/content"
         android:layout_width="match_parent"
+        android:fontFamily="@font/tajwal"
         android:padding="@dimen/mini_margin"
         android:layout_height="wrap_content"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
     <View
         android:layout_width="match_parent"
