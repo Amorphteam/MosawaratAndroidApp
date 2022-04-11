@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.HajariAlmustafa" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.HajariAlmustafa" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/main_cream</item>
         <item name="colorPrimaryVariant">@color/main_cream</item>
@@ -23,4 +23,9 @@
     <style name="Theme.HajariAlmustafa.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.HajariAlmustafa.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ToolbarTextAppearance">
+        <item name="android:fontFamily">@font/tajwal</item>
+    </style>
+
 </resources>

@@ -1,18 +1,27 @@
 <!-- Adding the same root's ID for view binding as other layout configurations -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/shadow_logo"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_gravity="center"
+        android:src="@drawable/shadow_logo"
+ />
+
     <TextView
         android:id="@+id/item_detail"
-        android:fontFamily="@font/tajwal"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:lineHeight="35dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fontFamily="@font/tajwal"
+        android:lineHeight="35dp"
         android:padding="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textIsSelectable="true"
         tools:context="com.aj.hajarialmustafa.ItemDetailFragment" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

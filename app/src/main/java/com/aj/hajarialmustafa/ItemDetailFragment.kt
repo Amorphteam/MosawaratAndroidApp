@@ -8,6 +8,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.aj.hajarialmustafa.placeholder.PlaceholderContent
 import com.aj.hajarialmustafa.databinding.FragmentItemDetailBinding
@@ -26,7 +27,9 @@ class ItemDetailFragment : Fragment() {
     private var item: PlaceholderContent.PlaceholderItem? = null
 
     lateinit var itemDetailTextView: TextView
+    lateinit var imageView: ImageView
     private var toolbarLayout: CollapsingToolbarLayout? = null
+
 
     private var _binding: FragmentItemDetailBinding? = null
 
@@ -67,6 +70,7 @@ class ItemDetailFragment : Fragment() {
 
         toolbarLayout = binding.toolbarLayout
         itemDetailTextView = binding.itemDetail
+        imageView = binding.shadowLogo!!
 
         updateContent()
         rootView.setOnDragListener(dragListener)
@@ -76,10 +80,14 @@ class ItemDetailFragment : Fragment() {
 
     private fun updateContent() {
         toolbarLayout?.title = item?.content
+        toolbarLayout?.setCollapsedTitleTextAppearance(R.style.ToolbarTextAppearance)
+        toolbarLayout?.setExpandedTitleTextAppearance(R.style.ToolbarTextAppearance)
 
         // Show the placeholder content as text in a TextView.
         item?.let {
             itemDetailTextView.text = it.details
+            imageView.visibility = View.GONE
+
         }
     }
 

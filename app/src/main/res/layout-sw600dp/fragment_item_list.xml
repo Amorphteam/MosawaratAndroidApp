@@ -13,10 +13,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_view"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/tajwal_m"
+            android:padding="@dimen/standard_margin"
+            android:text="@string/list"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            app:cardBackgroundColor="@color/light_cream"
+            android:layout_marginRight="@dimen/container_margin"
+            app:cardElevation="0dp"
+            android:layout_marginLeft="@dimen/container_margin"
+            app:cardCornerRadius="12dp">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.cardview.widget.CardView>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/item_list"
@@ -42,11 +61,13 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/container_margin"
         app:defaultNavHost="false"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/primary_details_sub_nav_graph" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
