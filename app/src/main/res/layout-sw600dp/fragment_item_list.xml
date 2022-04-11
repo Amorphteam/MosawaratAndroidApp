@@ -5,20 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/item_list"
-        android:name="com.aj.hajarialmustafa.ItemListFragment"
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/container_margin"
-        android:layout_marginEnd="@dimen/container_margin"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context="com.aj.hajarialmustafa.ItemDetailHostActivity"
-        tools:listitem="@layout/item_list_content" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/item_list"
+            android:name="com.aj.hajarialmustafa.ItemListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/container_margin"
+            android:layout_marginEnd="@dimen/container_margin"
+            app:layoutManager="LinearLayoutManager"
+            tools:context="com.aj.hajarialmustafa.ItemDetailHostActivity"
+            tools:listitem="@layout/item_list_content" />
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
