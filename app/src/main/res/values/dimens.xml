@@ -8,4 +8,5 @@
     <dimen name="container_horizontal_margin">16dp</dimen>
     <dimen name="mini_margin">4dp</dimen>
     <dimen name="standard_margin">16dp</dimen>
+    <dimen name="large_margin_for_table_details">20dp</dimen>
 </resources>

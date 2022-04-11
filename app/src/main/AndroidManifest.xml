@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HajariAlmustafa">
         <activity
+            android:name=".ImageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_image"
+            android:theme="@style/Theme.HajariAlmustafa.Fullscreen" />
+        <activity
             android:name=".ItemDetailHostActivity"
             android:exported="true"
             android:label="@string/app_name"

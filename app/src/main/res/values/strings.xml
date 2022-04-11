@@ -2,4 +2,12 @@
     <string name="app_name">hajariAlmustafa</string>
     <string name="title_item_detail">Item Detail</string>
     <string name="list">قائمة المخطوطات</string>
+    <string name="search_des">ابحث عن عنوان المخطوطة أو مؤلفها أو مصدرها</string>
+    <string name="image_makhtot">صور المخطوطة</string>
+    <string name="general_info">المعلومات العامة</string>
+    <string name="makhtot_name">اسم المخطوطة</string>
+    <string name="makhtot_name_test">المنهاج بدرة الابتهاج في بيان معرفة المعراج</string>
+    <string name="title_activity_image">ImageActivity</string>
+    <string name="close">إغلاق</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cream"
+    android:theme="@style/ThemeOverlay.HajariAlmustafa.FullscreenContainer"
+    tools:context=".ImageActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true" />
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <Button
+            android:id="@+id/close"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/standard_margin"
+            android:fontFamily="@font/tajwal"
+            android:text="@string/close"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="10dp" />
+
+    </FrameLayout>
+
+</FrameLayout>

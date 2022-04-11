@@ -1,6 +1,7 @@
 package com.aj.hajarialmustafa
 
 import android.content.ClipData
+import android.content.Intent
 import android.os.Bundle
 import android.view.DragEvent
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.aj.hajarialmustafa.placeholder.PlaceholderContent
 import com.aj.hajarialmustafa.databinding.FragmentItemDetailBinding
 
@@ -27,7 +29,10 @@ class ItemDetailFragment : Fragment() {
     private var item: PlaceholderContent.PlaceholderItem? = null
 
     lateinit var itemDetailTextView: TextView
-    lateinit var imageView: ImageView
+    private var imageView: ImageView? = null
+    private var imageView1: ImageView? = null
+    private var imageView2: ImageView? = null
+
     private var toolbarLayout: CollapsingToolbarLayout? = null
 
 
@@ -69,8 +74,10 @@ class ItemDetailFragment : Fragment() {
         val rootView = binding.root
 
         toolbarLayout = binding.toolbarLayout
-        itemDetailTextView = binding.itemDetail
-        imageView = binding.shadowLogo!!
+        itemDetailTextView = binding.includedLayout.itemDetail
+        imageView = binding.shadowLogo
+        imageView1 = binding.includedLayout.image1
+        imageView2 = binding.includedLayout.image2
 
         updateContent()
         rootView.setOnDragListener(dragListener)
@@ -86,8 +93,14 @@ class ItemDetailFragment : Fragment() {
         // Show the placeholder content as text in a TextView.
         item?.let {
             itemDetailTextView.text = it.details
-            imageView.visibility = View.GONE
+            imageView?.visibility = View.GONE
+            imageView1?.setOnClickListener {
+                startActivity(Intent(requireContext(), ImageActivity::class.java))
+            }
 
+            imageView2?.setOnClickListener {
+                startActivity(Intent(requireContext(), ImageActivity::class.java))
+            }
         }
     }
 

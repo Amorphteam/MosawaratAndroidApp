@@ -39,19 +39,10 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/item_detail"
-            android:layout_width="match_parent"
-            android:fontFamily="@font/tajwal"
-            android:layout_height="match_parent"
-            android:paddingStart="@dimen/container_horizontal_margin"
-            android:paddingTop="16dp"
-            android:paddingEnd="@dimen/container_horizontal_margin"
-            android:lineHeight="35dp"
-            android:paddingBottom="16dp"
-            android:textIsSelectable="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            tools:context="com.aj.hajarialmustafa.ItemDetailFragment" />
+        <include
+            android:id="@+id/includedLayout"
+            layout="@layout/table_details"/>
+
 
     </androidx.core.widget.NestedScrollView>
 

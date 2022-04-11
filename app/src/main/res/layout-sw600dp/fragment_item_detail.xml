@@ -13,15 +13,7 @@
         android:layout_gravity="center"
         android:src="@drawable/shadow_logo"
  />
-
-    <TextView
-        android:id="@+id/item_detail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fontFamily="@font/tajwal"
-        android:lineHeight="35dp"
-        android:padding="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textIsSelectable="true"
-        tools:context="com.aj.hajarialmustafa.ItemDetailFragment" />
+    <include
+        android:id="@+id/includedLayout"
+        layout="@layout/table_details"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
