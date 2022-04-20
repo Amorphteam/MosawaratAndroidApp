@@ -20,6 +20,7 @@ import com.aj.hajarialmustafa.api.ServiceGenerator
 import com.aj.hajarialmustafa.databinding.ActivityItemDetailBinding
 import com.aj.hajarialmustafa.model.MakhtotItem
 import com.aj.hajarialmustafa.model.Post
+import com.aj.hajarialmustafa.preferences.PrefManagerSync
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -42,7 +43,10 @@ class ItemDetailHostActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
     }
 
+
+
     private fun connectionListener() {
+        Log.i("AJC", "111")
         val connectionManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         connectionManager.let {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
@@ -73,7 +77,7 @@ class ItemDetailHostActivity : AppCompatActivity() {
 
                 override fun onNext(t: MakhtotItem?) {
                     val json: String = Gson().toJson(t?.posts)
-                    Log.i("AJC", json)
+                    PrefManagerSync.getInstance(this@ItemDetailHostActivity)?.setLocalJson(json)
                 }
 
                 override fun onError(t: Throwable?) {

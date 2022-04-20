@@ -14,12 +14,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aj.hajarialmustafa.ItemDetailFragment
 import com.aj.hajarialmustafa.R
 import com.aj.hajarialmustafa.databinding.ItemListContentBinding
+import com.aj.hajarialmustafa.model.Post
 import com.aj.hajarialmustafa.placeholder.PlaceholderContent
 import java.util.*
 import kotlin.collections.ArrayList
 
 class MyAdapter(
-    private var values: ArrayList<PlaceholderContent.PlaceholderItem>,
+    private var values: List<Post>,
     private val itemDetailFragmentContainer: View?
 ) :
     RecyclerView.Adapter<MyAdapter.ViewHolder>() {
@@ -32,7 +33,7 @@ class MyAdapter(
 
     }
 
-    fun setFilter(newList: ArrayList<PlaceholderContent.PlaceholderItem>?) {
+    fun setFilter(newList: ArrayList<Post>?) {
         values = ArrayList()
         values = newList!!
         notifyDataSetChanged()
@@ -40,17 +41,17 @@ class MyAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = "اسم المخطوطة من مخطوطات المصطفى " + item.id
-        holder.contentView.text = item.content
+        holder.idView.text = item.post_name
+        holder.contentView.text = item.details.author_name
 
         with(holder.itemView) {
             tag = item
             setOnClickListener { itemView ->
-                val item = itemView.tag as PlaceholderContent.PlaceholderItem
+                val item = itemView.tag as Post
                 val bundle = Bundle()
                 bundle.putString(
                     ItemDetailFragment.ARG_ITEM_ID,
-                    item.id
+                    item.post_name
                 )
                 if (itemDetailFragmentContainer != null) {
                     itemDetailFragmentContainer.findNavController()
@@ -66,10 +67,10 @@ class MyAdapter(
                  * experience on larger screen devices
                  */
                 setOnContextClickListener { v ->
-                    val item = v.tag as PlaceholderContent.PlaceholderItem
+                    val item = v.tag as Post
                     Toast.makeText(
                         v.context,
-                        "Context click of item " + item.id,
+                        "Context click of item " + item.post_name,
                         Toast.LENGTH_LONG
                     ).show()
                     true
@@ -79,7 +80,7 @@ class MyAdapter(
             setOnLongClickListener { v ->
                 // Setting the item id as the clip data so that the drop target is able to
                 // identify the id of the content
-                val clipItem = ClipData.Item(item.id)
+                val clipItem = ClipData.Item(item.post_name)
                 val dragData = ClipData(
                     v.tag as? CharSequence,
                     arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
