@@ -10,4 +10,6 @@
     <string name="title_activity_image">ImageActivity</string>
     <string name="close">إغلاق</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="getData">تم تحديث قائمة المخطوطات</string>
+    <string name="errorGettingData">هناك مشكلة في استلام المعلومات</string>
 </resources>
