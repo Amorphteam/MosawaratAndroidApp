@@ -12,4 +12,12 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="getData">تم تحديث قائمة المخطوطات</string>
     <string name="errorGettingData">هناك مشكلة في استلام المعلومات</string>
+    <string name="makhtot_author_name">المؤلف</string>
+    <string name="makhtot_writer">الناسخ</string>
+    <string name="makhtot_writing_date">تاريخ النسخ</string>
+    <string name="makhtot_source">المصدر</string>
+    <string name="makhtot_cat">الموضوع</string>
+    <string name="makhtot_line_count">عدد الأسطر</string>
+    <string name="makhtot_font_type">نوع الخط</string>
+    <string name="makhtot_notes">الملاحظات</string>
 </resources>

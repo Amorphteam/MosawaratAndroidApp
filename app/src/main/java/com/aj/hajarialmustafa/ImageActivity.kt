@@ -1,6 +1,5 @@
 package com.aj.hajarialmustafa
 
-import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
@@ -10,10 +9,11 @@ import android.view.View
 import android.view.WindowInsets
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.aj.hajarialmustafa.databinding.ActivityImageBinding
+import com.bumptech.glide.Glide
 import com.github.chrisbanes.photoview.PhotoView
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -83,7 +83,9 @@ class ImageActivity : AppCompatActivity() {
         // Set up the user interaction to manually show or hide the system UI.
         fullscreenContent = binding.fullscreenContent
         close = binding.close
-        fullscreenContent.setImageResource(R.drawable.testimage)
+        val intent = intent
+        val imageUrl = intent.extras!!.getString("IMAGE")
+        loadImageFromUrl(fullscreenContent, imageUrl!!)
         close.setOnClickListener { onBackPressed() }
         fullscreenContent.setOnClickListener { toggle() }
 
@@ -103,6 +105,13 @@ class ImageActivity : AppCompatActivity() {
         delayedHide(100)
     }
 
+    private fun loadImageFromUrl(imageView: ImageView?, thumbnailUrl: String) {
+        Glide.with(this)
+            .load(thumbnailUrl) // image url
+//                .placeholder(R.drawable.placeholder) // any placeholder to load at start
+//                .error(R.drawable.imagenotfound)  // any image in case of error
+            .into(imageView!!);  // imageview object
+    }
     private fun toggle() {
         if (isFullscreen) {
             hide()

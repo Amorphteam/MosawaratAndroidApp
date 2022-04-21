@@ -94,8 +94,9 @@ class ItemListFragment : Fragment() {
 
     private fun getOfflineMakhtotItem(): List<Post> {
         val localJson:String? = PrefManagerSync.getInstance(requireContext())?.getLocalJson()
-        return Gson().fromJson(localJson, Array<Post>::class.java).toMutableList()
-    }
+            return Gson().fromJson(localJson, Array<Post>::class.java).toMutableList()
+       }
+
     private fun setupSearchView(searchView: SearchView, adapter:MyAdapter) {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
@@ -106,7 +107,7 @@ class ItemListFragment : Fragment() {
                 val filterWord = newText.lowercase(Locale.getDefault())
                 val newList: ArrayList<Post> = ArrayList()
                 for (item in getOfflineMakhtotItem()!!) {
-                    if (item?.post_name!!.contains(filterWord)) {
+                    if (item.post_name.contains(filterWord)) {
                         newList.add(item)
                     }
                 }

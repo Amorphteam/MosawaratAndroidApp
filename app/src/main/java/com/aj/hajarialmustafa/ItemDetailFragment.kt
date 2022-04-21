@@ -4,16 +4,18 @@ import android.content.ClipData
 import android.content.Intent
 import android.os.Bundle
 import android.view.DragEvent
-import androidx.fragment.app.Fragment
-import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import com.aj.hajarialmustafa.placeholder.PlaceholderContent
+import androidx.fragment.app.Fragment
 import com.aj.hajarialmustafa.databinding.FragmentItemDetailBinding
+import com.aj.hajarialmustafa.model.Post
+import com.aj.hajarialmustafa.preferences.PrefManagerSync
+import com.bumptech.glide.Glide
+import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.gson.Gson
 
 /**
  * A fragment representing a single Item detail screen.
@@ -26,13 +28,19 @@ class ItemDetailFragment : Fragment() {
     /**
      * The placeholder content this fragment is presenting.
      */
-    private var item: PlaceholderContent.PlaceholderItem? = null
+    private var item: Post? = null
 
-    lateinit var itemDetailTextView: TextView
     private var imageView: ImageView? = null
     private var imageView1: ImageView? = null
     private var imageView2: ImageView? = null
-
+    lateinit var authorName: TextView
+    lateinit var writerName: TextView
+    lateinit var writingDate: TextView
+    lateinit var fontType: TextView
+    lateinit var lineCount: TextView
+    lateinit var sourceName: TextView
+    lateinit var catName: TextView
+    lateinit var notes: TextView
     private var toolbarLayout: CollapsingToolbarLayout? = null
 
 
@@ -46,7 +54,6 @@ class ItemDetailFragment : Fragment() {
         if (event.action == DragEvent.ACTION_DROP) {
             val clipDataItem: ClipData.Item = event.clipData.getItemAt(0)
             val dragData = clipDataItem.text
-            item = PlaceholderContent.ITEM_MAP[dragData]
             updateContent()
         }
         true
@@ -60,9 +67,18 @@ class ItemDetailFragment : Fragment() {
                 // Load the placeholder content specified by the fragment
                 // arguments. In a real-world scenario, use a Loader
                 // to load content from a content provider.
-                item = PlaceholderContent.ITEM_MAP[it.getString(ARG_ITEM_ID)]
+                for (makhtotItem in getOfflineMakhtotItem()!!) {
+                    if (makhtotItem.post_name.equals(it.getString(ARG_ITEM_ID))) {
+                        this.item = makhtotItem
+                    }
+                }
             }
         }
+    }
+
+    private fun getOfflineMakhtotItem(): List<Post>? {
+        val localJson: String? = PrefManagerSync.getInstance(requireContext())?.getLocalJson()
+        return Gson().fromJson(localJson, Array<Post>::class.java).toMutableList()
     }
 
     override fun onCreateView(
@@ -74,11 +90,17 @@ class ItemDetailFragment : Fragment() {
         val rootView = binding.root
 
         toolbarLayout = binding.toolbarLayout
-        itemDetailTextView = binding.includedLayout.itemDetail
         imageView = binding.shadowLogo
         imageView1 = binding.includedLayout.image1
         imageView2 = binding.includedLayout.image2
-
+        authorName = binding.includedLayout.author
+        writerName = binding.includedLayout.writer
+        writingDate = binding.includedLayout.writingDate
+        fontType = binding.includedLayout.fontType
+        lineCount = binding.includedLayout.lineCount
+        sourceName = binding.includedLayout.sourceName
+        catName = binding.includedLayout.cat
+        notes = binding.includedLayout.notes
         updateContent()
         rootView.setOnDragListener(dragListener)
 
@@ -86,23 +108,48 @@ class ItemDetailFragment : Fragment() {
     }
 
     private fun updateContent() {
-        toolbarLayout?.title = item?.content
+        toolbarLayout?.title = item?.post_name
         toolbarLayout?.setCollapsedTitleTextAppearance(R.style.ToolbarTextAppearance)
         toolbarLayout?.setExpandedTitleTextAppearance(R.style.ToolbarTextAppearance)
 
         // Show the placeholder content as text in a TextView.
         item?.let {
-            itemDetailTextView.text = it.details
+            authorName.text = it.details.author_name
+            writerName.text = it.details.writer_name
+            writingDate.text = it.details.writing_date
+            fontType.text = it.details.font_type
+            lineCount.text = it.details.page_count
+            sourceName.text = it.details.source
+            catName.text = it.details.category
+            notes.text = it.details.note1
             imageView?.visibility = View.GONE
-            imageView1?.setOnClickListener {
-                startActivity(Intent(requireContext(), ImageActivity::class.java))
+            loadImageFromUrl(imageView1, it.images[0].thumbnail_url)
+            loadImageFromUrl(imageView2, it.images[1].thumbnail_url)
+
+            imageView1?.setOnClickListener { _ ->
+                val intent = Intent(requireContext(), ImageActivity::class.java)
+                intent.putExtra("IMAGE", it.images[0].image_url)
+                startActivity(intent)
             }
 
-            imageView2?.setOnClickListener {
-                startActivity(Intent(requireContext(), ImageActivity::class.java))
+            imageView2?.setOnClickListener { _ ->
+                val intent = Intent(requireContext(), ImageActivity::class.java)
+                intent.putExtra("IMAGE", it.images[1].image_url)
+                startActivity(intent)
             }
         }
     }
+
+    private fun loadImageFromUrl(imageView: ImageView?, thumbnailUrl: String) {
+        Glide.with(this)
+            .load(thumbnailUrl) // image url
+//                .placeholder(R.drawable.placeholder) // any placeholder to load at start
+//                .error(R.drawable.imagenotfound)  // any image in case of error
+            .override(200, 200) // resizing
+            .centerCrop()
+            .into(imageView!!);  // imageview object
+    }
+
 
     companion object {
         /**
