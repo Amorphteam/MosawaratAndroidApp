@@ -15,8 +15,6 @@ import com.aj.hajarialmustafa.ItemDetailFragment
 import com.aj.hajarialmustafa.R
 import com.aj.hajarialmustafa.databinding.ItemListContentBinding
 import com.aj.hajarialmustafa.model.Post
-import com.aj.hajarialmustafa.placeholder.PlaceholderContent
-import java.util.*
 import kotlin.collections.ArrayList
 
 class MyAdapter(

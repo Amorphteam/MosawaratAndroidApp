@@ -7,4 +7,9 @@ interface IPrefManagerSync {
     fun getLocalJson(): String?
 
     fun setLocalJson(localJson: String?)
+
+    fun getLastDateUpdateJson(): String?
+
+    fun setLastDateUpdateJson(date:String)
+
 }

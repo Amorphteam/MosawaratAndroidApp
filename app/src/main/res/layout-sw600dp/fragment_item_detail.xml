@@ -11,9 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_gravity="center"
-        android:src="@drawable/shadow_logo"
- />
-    <include
-        android:id="@+id/includedLayout"
-        layout="@layout/table_details"/>
+        android:src="@drawable/shadow_logo" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/standard_margin"
+        android:paddingBottom="@dimen/standard_margin">
+
+        <include
+            android:id="@+id/includedLayout"
+            layout="@layout/table_details" />
+    </ScrollView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

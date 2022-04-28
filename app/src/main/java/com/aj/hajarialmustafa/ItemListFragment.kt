@@ -1,13 +1,11 @@
 package com.aj.hajarialmustafa
 
-import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
@@ -16,7 +14,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aj.hajarialmustafa.adapter.MyAdapter
 import com.aj.hajarialmustafa.databinding.FragmentItemListBinding
 import com.aj.hajarialmustafa.model.Post
-import com.aj.hajarialmustafa.placeholder.PlaceholderContent
+import com.aj.hajarialmustafa.placeholder.MainItems
+import com.aj.hajarialmustafa.placeholder.MainItems.Companion.chechForUpdate
+import com.aj.hajarialmustafa.placeholder.MainItems.Companion.getMakhtotItemsOnlineAndSaveToLocal
+import com.aj.hajarialmustafa.placeholder.MainItems.Companion.getOfflineMakhtotItemAsAList
+import com.aj.hajarialmustafa.placeholder.MainItems.Companion.hasNetwork
+import com.aj.hajarialmustafa.placeholder.MainItems.Companion.hasNewUpdate
 import com.aj.hajarialmustafa.preferences.PrefManagerSync
 import com.google.gson.Gson
 import java.util.*
@@ -32,7 +35,7 @@ import kotlin.collections.ArrayList
  */
 
 class ItemListFragment : Fragment() {
-
+    var items = ArrayList<Post>()
     /**
      * Method to intercept global key events in the
      * item list fragment to trigger keyboard shortcuts
@@ -85,17 +88,19 @@ class ItemListFragment : Fragment() {
         // Leaving this not using view binding as it relies on if the view is visible the current
         // layout configuration (layout, layout-sw600dp)
         val itemDetailFragmentContainer: View? = view.findViewById(R.id.item_detail_nav_container)
+        val context = requireContext()
+        chechForUpdate(context)
+
+        items = getOfflineMakhtotItemAsAList(context) as ArrayList<Post>
+
         val adapter =  MyAdapter(
-            getOfflineMakhtotItem(), itemDetailFragmentContainer
+            items, itemDetailFragmentContainer
         )
         setupRecyclerView(recyclerView, adapter)
         setupSearchView(searchView, adapter)
     }
 
-    private fun getOfflineMakhtotItem(): List<Post> {
-        val localJson:String? = PrefManagerSync.getInstance(requireContext())?.getLocalJson()
-            return Gson().fromJson(localJson, Array<Post>::class.java).toMutableList()
-       }
+
 
     private fun setupSearchView(searchView: SearchView, adapter:MyAdapter) {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -106,7 +111,7 @@ class ItemListFragment : Fragment() {
             override fun onQueryTextChange(newText: String): Boolean {
                 val filterWord = newText.lowercase(Locale.getDefault())
                 val newList: ArrayList<Post> = ArrayList()
-                for (item in getOfflineMakhtotItem()!!) {
+                for (item in items) {
                     if (item.post_name.contains(filterWord)) {
                         newList.add(item)
                     }

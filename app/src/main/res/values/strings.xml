@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">hajariAlmustafa</string>
-    <string name="title_item_detail">Item Detail</string>
+    <string name="app_name">مخطوطات المصطفى</string>
+    <string name="title_item_detail">التفاصيل</string>
     <string name="list">قائمة المخطوطات</string>
     <string name="search_des">ابحث عن عنوان المخطوطة أو مؤلفها أو مصدرها</string>
     <string name="image_makhtot">صور المخطوطة</string>
@@ -20,4 +20,7 @@
     <string name="makhtot_line_count">عدد الأسطر</string>
     <string name="makhtot_font_type">نوع الخط</string>
     <string name="makhtot_notes">الملاحظات</string>
+    <string name="page_count">عدد الصفحات</string>
+    <string name="makhtot_first_line">أوله</string>
+    <string name="makhtot_end_line">آخره</string>
 </resources>

@@ -8,10 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.aj.hajarialmustafa.databinding.FragmentItemDetailBinding
 import com.aj.hajarialmustafa.model.Post
+import com.aj.hajarialmustafa.placeholder.MainItems.Companion.getOfflineMakhtotItemAsAList
 import com.aj.hajarialmustafa.preferences.PrefManagerSync
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.CollapsingToolbarLayout
@@ -34,12 +36,16 @@ class ItemDetailFragment : Fragment() {
     private var imageView1: ImageView? = null
     private var imageView2: ImageView? = null
     lateinit var authorName: TextView
+    lateinit var tableDetail: LinearLayout
     lateinit var writerName: TextView
-    lateinit var writingDate: TextView
-    lateinit var fontType: TextView
-    lateinit var lineCount: TextView
+    lateinit var pageCount: TextView
     lateinit var sourceName: TextView
+    lateinit var fontType: TextView
     lateinit var catName: TextView
+    lateinit var writingDate: TextView
+    lateinit var lineCount: TextView
+    lateinit var firstLine: TextView
+    lateinit var endLine:TextView
     lateinit var notes: TextView
     private var toolbarLayout: CollapsingToolbarLayout? = null
 
@@ -67,7 +73,7 @@ class ItemDetailFragment : Fragment() {
                 // Load the placeholder content specified by the fragment
                 // arguments. In a real-world scenario, use a Loader
                 // to load content from a content provider.
-                for (makhtotItem in getOfflineMakhtotItem()!!) {
+                for (makhtotItem in getOfflineMakhtotItemAsAList(requireContext())!!) {
                     if (makhtotItem.post_name.equals(it.getString(ARG_ITEM_ID))) {
                         this.item = makhtotItem
                     }
@@ -76,10 +82,7 @@ class ItemDetailFragment : Fragment() {
         }
     }
 
-    private fun getOfflineMakhtotItem(): List<Post>? {
-        val localJson: String? = PrefManagerSync.getInstance(requireContext())?.getLocalJson()
-        return Gson().fromJson(localJson, Array<Post>::class.java).toMutableList()
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -88,7 +91,7 @@ class ItemDetailFragment : Fragment() {
 
         _binding = FragmentItemDetailBinding.inflate(inflater, container, false)
         val rootView = binding.root
-
+        tableDetail = binding.includedLayout.tableDetail
         toolbarLayout = binding.toolbarLayout
         imageView = binding.shadowLogo
         imageView1 = binding.includedLayout.image1
@@ -98,8 +101,11 @@ class ItemDetailFragment : Fragment() {
         writingDate = binding.includedLayout.writingDate
         fontType = binding.includedLayout.fontType
         lineCount = binding.includedLayout.lineCount
+        pageCount = binding.includedLayout.pageCount
         sourceName = binding.includedLayout.sourceName
         catName = binding.includedLayout.cat
+        firstLine = binding.includedLayout.firstLine
+        endLine = binding.includedLayout.endLine
         notes = binding.includedLayout.notes
         updateContent()
         rootView.setOnDragListener(dragListener)
@@ -111,17 +117,22 @@ class ItemDetailFragment : Fragment() {
         toolbarLayout?.title = item?.post_name
         toolbarLayout?.setCollapsedTitleTextAppearance(R.style.ToolbarTextAppearance)
         toolbarLayout?.setExpandedTitleTextAppearance(R.style.ToolbarTextAppearance)
-
+        tableDetail.visibility = View.GONE
+        imageView?.visibility = View.VISIBLE
         // Show the placeholder content as text in a TextView.
         item?.let {
+            tableDetail.visibility = View.VISIBLE
             authorName.text = it.details.author_name
             writerName.text = it.details.writer_name
             writingDate.text = it.details.writing_date
             fontType.text = it.details.font_type
-            lineCount.text = it.details.page_count
+            pageCount.text = it.details.page_count
             sourceName.text = it.details.source
             catName.text = it.details.category
-            notes.text = it.details.note1
+            lineCount.text = it.details.note6
+            firstLine.text = it.details.note1
+            firstLine.text = it.details.note2
+            notes.text = "${it.details.note3} \n ${it.details.note4} \n ${it.details.note5}"
             imageView?.visibility = View.GONE
             loadImageFromUrl(imageView1, it.images[0].thumbnail_url)
             loadImageFromUrl(imageView2, it.images[1].thumbnail_url)

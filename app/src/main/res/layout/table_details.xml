@@ -4,8 +4,10 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:id="@+id/table_detail"
     android:layout_marginRight="@dimen/large_margin_for_table_details"
     android:layout_marginLeft="@dimen/large_margin_for_table_details"
+    android:visibility="gone"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
@@ -89,8 +91,8 @@
             <TextView
                 android:id="@+id/author"
                 android:layout_width="0dp"
+                android:lineHeight="@dimen/line_hight"
                 android:layout_weight="2"
-                android:text="@string/makhtot_name_test"
                 android:fontFamily="@font/tajwal"
                 android:textColor="@color/black"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -124,9 +126,9 @@
 
                 <TextView
                     android:id="@+id/writer"
+                    android:lineHeight="@dimen/line_hight"
                     android:layout_width="0dp"
                     android:layout_weight="2"
-                    android:text="@string/makhtot_name_test"
                     android:fontFamily="@font/tajwal"
                     android:textColor="@color/black"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -150,7 +152,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/makhtot_writing_date"
+                    android:text="@string/page_count"
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
@@ -159,10 +161,10 @@
 
 
                 <TextView
-                    android:id="@+id/writing_date"
+                    android:id="@+id/page_count"
+                    android:lineHeight="@dimen/line_hight"
                     android:layout_width="0dp"
                     android:layout_weight="2"
-                    android:text="@string/makhtot_name_test"
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
@@ -196,81 +198,9 @@
 
                 <TextView
                     android:id="@+id/source_name"
+                    android:lineHeight="@dimen/line_hight"
                     android:layout_width="0dp"
                     android:layout_weight="2"
-                    android:text="@string/makhtot_name_test"
-                    android:fontFamily="@font/tajwal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/standard_margin"
-                    />
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/black"
-                android:alpha="0.2"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="@string/makhtot_cat"
-                    android:fontFamily="@font/tajwal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/standard_margin"
-                    />
-
-
-                <TextView
-                    android:id="@+id/cat"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:text="@string/makhtot_name_test"
-                    android:fontFamily="@font/tajwal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:layout_margin="@dimen/standard_margin"
-                    />
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/black"
-                android:alpha="0.2"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="@string/makhtot_line_count"
-                    android:fontFamily="@font/tajwal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/standard_margin"
-                    />
-
-
-                <TextView
-                    android:id="@+id/line_count"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:text="@string/makhtot_name_test"
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
@@ -305,8 +235,152 @@
                 <TextView
                     android:id="@+id/font_type"
                     android:layout_width="0dp"
+                    android:lineHeight="@dimen/line_hight"
                     android:layout_weight="2"
-                    android:text="@string/makhtot_name_test"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black"
+                android:alpha="0.2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/makhtot_cat"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+
+
+                <TextView
+                    android:id="@+id/cat"
+                    android:lineHeight="@dimen/line_hight"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black"
+                android:alpha="0.2"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/makhtot_writing_date"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+
+
+                <TextView
+                    android:id="@+id/writing_date"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:lineHeight="@dimen/line_hight"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black"
+                android:alpha="0.2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/makhtot_first_line"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+
+
+                <TextView
+                    android:id="@+id/first_line"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:lineHeight="@dimen/line_hight"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black"
+                android:alpha="0.2"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/makhtot_end_line"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+
+
+                <TextView
+                    android:id="@+id/end_line"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:lineHeight="@dimen/line_hight"
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
@@ -342,7 +416,45 @@
                     android:id="@+id/notes"
                     android:layout_width="0dp"
                     android:layout_weight="2"
-                    android:text="@string/makhtot_name_test"
+                    android:lineHeight="@dimen/line_hight"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black"
+                android:alpha="0.2"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/makhtot_line_count"
+                    android:fontFamily="@font/tajwal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_margin"
+                    />
+
+
+                <TextView
+                    android:id="@+id/line_count"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:lineHeight="@dimen/line_hight"
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"

@@ -20,6 +20,8 @@ import com.aj.hajarialmustafa.api.ServiceGenerator
 import com.aj.hajarialmustafa.databinding.ActivityItemDetailBinding
 import com.aj.hajarialmustafa.model.MakhtotItem
 import com.aj.hajarialmustafa.model.Post
+import com.aj.hajarialmustafa.placeholder.MainItems
+import com.aj.hajarialmustafa.placeholder.MainItems.Companion.chechForUpdate
 import com.aj.hajarialmustafa.preferences.PrefManagerSync
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
@@ -36,56 +38,13 @@ class ItemDetailHostActivity : AppCompatActivity() {
         window.decorView.layoutDirection = View.LAYOUT_DIRECTION_RTL;
         val binding = ActivityItemDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        connectionListener()
+        chechForUpdate(this)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_item_detail) as NavHostFragment
         val navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
     }
 
-
-
-    private fun connectionListener() {
-        Log.i("AJC", "111")
-        val connectionManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        connectionManager.let {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                it.registerDefaultNetworkCallback(object: ConnectivityManager.NetworkCallback(){
-                    override fun onAvailable(network: Network) {
-                        checkOnlineJson()
-                    }
-                })
-            }
-        }
-    }
-
-    fun checkOnlineJson(){
-        if (true){
-            getMakhtotItemsOnline()
-        }
-    }
-
-    @SuppressLint("CheckResult")
-    private fun getMakhtotItemsOnline() {
-        ServiceGenerator.requestApi.getAllMakhtotItems()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(object: DisposableSubscriber<MakhtotItem>(){
-                override fun onComplete() {
-                    Toast.makeText(this@ItemDetailHostActivity, getString(R.string.getData), Toast.LENGTH_LONG).show()
-                }
-
-                override fun onNext(t: MakhtotItem?) {
-                    val json: String = Gson().toJson(t?.posts)
-                    PrefManagerSync.getInstance(this@ItemDetailHostActivity)?.setLocalJson(json)
-                }
-
-                override fun onError(t: Throwable?) {
-                    Toast.makeText(this@ItemDetailHostActivity, getString(R.string.errorGettingData), Toast.LENGTH_LONG).show()
-                    Log.i("AJC", t?.message.toString())
-                }
-            })
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_item_detail)
