@@ -25,12 +25,20 @@ import java.util.HashMap
  *
  * TODO: Replace all uses of this class before publishing your app.
  */
+
+interface DataListiner {
+    fun onGetNewList()
+}
+
 class MainItems() {
 
     companion object {
-        fun  chechForUpdate(context: Context){
+        var dataListiner: DataListiner? = null
+        fun chechForUpdate(context: Context, dataListiner: DataListiner) {
+            this.dataListiner = dataListiner
             hasNetwork(context)
         }
+
         fun hasNetwork(context: Context) {
             val connectionManager =
                 context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -63,6 +71,7 @@ class MainItems() {
                             getMakhtotItemsOnlineAndSaveToLocal(context)
                         }
                     }
+
                     override fun onError(t: Throwable?) {
                         Log.e("AJC", t?.message.toString())
                     }
@@ -71,20 +80,16 @@ class MainItems() {
         }
 
 
-
-
         @SuppressLint("CheckResult")
-         fun getMakhtotItemsOnlineAndSaveToLocal(context: Context) {
+        fun getMakhtotItemsOnlineAndSaveToLocal(context: Context) {
             ServiceGenerator.requestApi.getAllMakhtotItems()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSubscriber<MakhtotItem>() {
                     override fun onComplete() {
-                        Toast.makeText(
-                            context,
-                            context.getString(R.string.getData),
-                            Toast.LENGTH_LONG
-                        ).show()
+                        if (dataListiner != null) {
+                            dataListiner?.onGetNewList()
+                        }
                     }
 
                     override fun onNext(t: MakhtotItem?) {
@@ -108,7 +113,6 @@ class MainItems() {
             return Gson().fromJson(localJson, Array<Post>::class.java).toMutableList()
         }
     }
-
 
 
 }

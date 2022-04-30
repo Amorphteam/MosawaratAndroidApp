@@ -20,6 +20,7 @@ import com.aj.hajarialmustafa.api.ServiceGenerator
 import com.aj.hajarialmustafa.databinding.ActivityItemDetailBinding
 import com.aj.hajarialmustafa.model.MakhtotItem
 import com.aj.hajarialmustafa.model.Post
+import com.aj.hajarialmustafa.placeholder.DataListiner
 import com.aj.hajarialmustafa.placeholder.MainItems
 import com.aj.hajarialmustafa.placeholder.MainItems.Companion.chechForUpdate
 import com.aj.hajarialmustafa.preferences.PrefManagerSync
@@ -29,7 +30,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subscribers.DisposableSubscriber
 
-class ItemDetailHostActivity : AppCompatActivity() {
+class ItemDetailHostActivity : AppCompatActivity(), DataListiner {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -38,7 +39,7 @@ class ItemDetailHostActivity : AppCompatActivity() {
         window.decorView.layoutDirection = View.LAYOUT_DIRECTION_RTL;
         val binding = ActivityItemDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        chechForUpdate(this)
+        chechForUpdate(this, this)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_item_detail) as NavHostFragment
         val navController = navHostFragment.navController
@@ -50,5 +51,9 @@ class ItemDetailHostActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_item_detail)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    override fun onGetNewList() {
+        Log.i("AJC", "get new data ")
     }
 }

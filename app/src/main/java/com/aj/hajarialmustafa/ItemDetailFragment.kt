@@ -16,6 +16,9 @@ import com.aj.hajarialmustafa.model.Post
 import com.aj.hajarialmustafa.placeholder.MainItems.Companion.getOfflineMakhtotItemAsAList
 import com.aj.hajarialmustafa.preferences.PrefManagerSync
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.gson.Gson
 
@@ -156,8 +159,8 @@ class ItemDetailFragment : Fragment() {
             .load(thumbnailUrl) // image url
 //                .placeholder(R.drawable.placeholder) // any placeholder to load at start
 //                .error(R.drawable.imagenotfound)  // any image in case of error
+            .transform(CenterCrop(),RoundedCorners(25))
             .override(200, 200) // resizing
-            .centerCrop()
             .into(imageView!!);  // imageview object
     }
 

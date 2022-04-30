@@ -1,11 +1,13 @@
 package com.aj.hajarialmustafa
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
@@ -14,16 +16,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aj.hajarialmustafa.adapter.MyAdapter
 import com.aj.hajarialmustafa.databinding.FragmentItemListBinding
 import com.aj.hajarialmustafa.model.Post
-import com.aj.hajarialmustafa.placeholder.MainItems
+import com.aj.hajarialmustafa.placeholder.DataListiner
 import com.aj.hajarialmustafa.placeholder.MainItems.Companion.chechForUpdate
-import com.aj.hajarialmustafa.placeholder.MainItems.Companion.getMakhtotItemsOnlineAndSaveToLocal
 import com.aj.hajarialmustafa.placeholder.MainItems.Companion.getOfflineMakhtotItemAsAList
-import com.aj.hajarialmustafa.placeholder.MainItems.Companion.hasNetwork
-import com.aj.hajarialmustafa.placeholder.MainItems.Companion.hasNewUpdate
-import com.aj.hajarialmustafa.preferences.PrefManagerSync
-import com.google.gson.Gson
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 /**
  * A Fragment representing a list of Pings. This fragment
@@ -34,8 +31,9 @@ import kotlin.collections.ArrayList
  * item details side-by-side using two vertical panes.
  */
 
-class ItemListFragment : Fragment() {
+class ItemListFragment : Fragment(), DataListiner {
     var items = ArrayList<Post>()
+    var adapter: MyAdapter? = null
     /**
      * Method to intercept global key events in the
      * item list fragment to trigger keyboard shortcuts
@@ -89,15 +87,15 @@ class ItemListFragment : Fragment() {
         // layout configuration (layout, layout-sw600dp)
         val itemDetailFragmentContainer: View? = view.findViewById(R.id.item_detail_nav_container)
         val context = requireContext()
-        chechForUpdate(context)
+        chechForUpdate(context, this)
 
         items = getOfflineMakhtotItemAsAList(context) as ArrayList<Post>
 
-        val adapter =  MyAdapter(
+        adapter =  MyAdapter(
             items, itemDetailFragmentContainer
         )
-        setupRecyclerView(recyclerView, adapter)
-        setupSearchView(searchView, adapter)
+        setupRecyclerView(recyclerView, adapter!!)
+        setupSearchView(searchView, adapter!!)
     }
 
 
@@ -112,7 +110,7 @@ class ItemListFragment : Fragment() {
                 val filterWord = newText.lowercase(Locale.getDefault())
                 val newList: ArrayList<Post> = ArrayList()
                 for (item in items) {
-                    if (item.post_name.contains(filterWord)) {
+                    if (item.post_name.contains(filterWord) || item.details.author_name.contains(filterWord) || item.details.source.contains(filterWord)) {
                         newList.add(item)
                     }
                 }
@@ -136,5 +134,10 @@ class ItemListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onGetNewList() {
+        items = getOfflineMakhtotItemAsAList(requireContext()) as ArrayList<Post>
+        adapter!!.updateAdapter(items)
     }
 }

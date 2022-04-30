@@ -32,6 +32,10 @@
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/search_view"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="@string/search_des"
+                app:searchHintIcon="@null"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </androidx.cardview.widget.CardView>

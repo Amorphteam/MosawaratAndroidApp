@@ -31,6 +31,11 @@ class MyAdapter(
 
     }
 
+    fun updateAdapter(newList: ArrayList<Post>?){
+        values = ArrayList()
+        values = newList!!
+        notifyDataSetChanged()
+    }
     fun setFilter(newList: ArrayList<Post>?) {
         values = ArrayList()
         values = newList!!
