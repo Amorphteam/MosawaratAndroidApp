@@ -1,0 +1,298 @@
+{
+  "project_info": {
+    "project_number": "816983565345",
+    "project_id": "amorph-customers-apps-ea527",
+    "storage_bucket": "amorph-customers-apps-ea527.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816983565345:android:f8e0b18ac6adf766b9ef60",
+        "android_client_info": {
+          "package_name": "com.amorph.almustafa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Db53NQxf_fq4HbpxlJdhOng7vwLsKfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "816983565345-4pdugmg6dkkalcfob1nc8abnfopp30o7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mehdok.papyrus.ejtihad-mag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816983565345:android:ed9d7dcff9bfc6a8b9ef60",
+        "android_client_info": {
+          "package_name": "com.mehdok.amorph.ketub.mafatihf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Db53NQxf_fq4HbpxlJdhOng7vwLsKfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "816983565345-4pdugmg6dkkalcfob1nc8abnfopp30o7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mehdok.papyrus.ejtihad-mag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816983565345:android:53eed6e76f791fccb9ef60",
+        "android_client_info": {
+          "package_name": "com.mehdok.amorph.ketub.quranf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Db53NQxf_fq4HbpxlJdhOng7vwLsKfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "816983565345-4pdugmg6dkkalcfob1nc8abnfopp30o7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mehdok.papyrus.ejtihad-mag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816983565345:android:a99fb5be82063da3b9ef60",
+        "android_client_info": {
+          "package_name": "com.mehdok.papyrus.Hobbollah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Db53NQxf_fq4HbpxlJdhOng7vwLsKfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "816983565345-4pdugmg6dkkalcfob1nc8abnfopp30o7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mehdok.papyrus.ejtihad-mag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816983565345:android:daa296df1d07fc24b9ef60",
+        "android_client_info": {
+          "package_name": "com.mehdok.papyrus.ejtihad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Db53NQxf_fq4HbpxlJdhOng7vwLsKfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "816983565345-4pdugmg6dkkalcfob1nc8abnfopp30o7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mehdok.papyrus.ejtihad-mag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816983565345:android:cd031acc99c86313b9ef60",
+        "android_client_info": {
+          "package_name": "com.mehdok.papyrus.fanoos.alborhans"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Db53NQxf_fq4HbpxlJdhOng7vwLsKfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "816983565345-4pdugmg6dkkalcfob1nc8abnfopp30o7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mehdok.papyrus.ejtihad-mag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816983565345:android:9976b3f0ba3a938ab9ef60",
+        "android_client_info": {
+          "package_name": "com.mehdok.papyrus.fanoos.biharf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Db53NQxf_fq4HbpxlJdhOng7vwLsKfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "816983565345-4pdugmg6dkkalcfob1nc8abnfopp30o7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mehdok.papyrus.ejtihad-mag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816983565345:android:112c9ab36aead956b9ef60",
+        "android_client_info": {
+          "package_name": "com.mehdok.papyrus.nosos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Db53NQxf_fq4HbpxlJdhOng7vwLsKfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816983565345-vbsvaoru89l3uj7oqe0994650ru3odko.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "816983565345-4pdugmg6dkkalcfob1nc8abnfopp30o7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mehdok.papyrus.ejtihad-mag"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
