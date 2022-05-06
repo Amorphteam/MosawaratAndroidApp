@@ -29,8 +29,9 @@
             android:layout_height="40dp"
             android:layout_margin="@dimen/standard_margin"
             android:fontFamily="@font/tajwal"
+            android:textColor="@color/white"
             android:text="@string/close"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:backgroundTint="@color/main_cream_bu"
             android:textSize="10dp" />
 
     </FrameLayout>

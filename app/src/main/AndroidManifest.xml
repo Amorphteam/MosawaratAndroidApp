@@ -36,11 +36,6 @@
             android:theme="@style/Theme.HajariAlmustafa.NoActionBar"
             android:resizeableActivity="true"
             tools:targetApi="24">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

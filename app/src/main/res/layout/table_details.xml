@@ -94,7 +94,7 @@
                 android:lineHeight="@dimen/line_hight"
                 android:layout_weight="2"
                 android:fontFamily="@font/tajwal"
-                android:textColor="@color/black"
+                android:textColor="@color/black_item"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/standard_margin"
@@ -103,7 +103,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/black"
+            android:background="@color/black_item"
             android:alpha="0.2"/>
 
             <LinearLayout
@@ -130,7 +130,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:fontFamily="@font/tajwal"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/standard_margin"
@@ -139,7 +139,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/black"
+                android:background="@color/black_item"
                 android:alpha="0.2"/>
 
             <LinearLayout
@@ -168,14 +168,14 @@
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:layout_margin="@dimen/standard_margin"
                     />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/black"
+                android:background="@color/black_item"
                 android:alpha="0.2"/>
 
             <LinearLayout
@@ -204,14 +204,14 @@
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:layout_margin="@dimen/standard_margin"
                     />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/black"
+                android:background="@color/black_item"
                 android:alpha="0.2"/>
 
             <LinearLayout
@@ -240,14 +240,14 @@
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:layout_margin="@dimen/standard_margin"
                     />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/black"
+                android:background="@color/black_item"
                 android:alpha="0.2"/>
 
             <LinearLayout
@@ -276,14 +276,14 @@
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:layout_margin="@dimen/standard_margin"
                     />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/black"
+                android:background="@color/black_item"
                 android:alpha="0.2"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -311,14 +311,14 @@
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:layout_margin="@dimen/standard_margin"
                     />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/black"
+                android:background="@color/black_item"
                 android:alpha="0.2"/>
 
             <LinearLayout
@@ -347,14 +347,14 @@
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:layout_margin="@dimen/standard_margin"
                     />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/black"
+                android:background="@color/black_item"
                 android:alpha="0.2"/>
 
 
@@ -384,14 +384,14 @@
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:layout_margin="@dimen/standard_margin"
                     />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/black"
+                android:background="@color/black_item"
                 android:alpha="0.2"/>
 
             <LinearLayout
@@ -420,14 +420,14 @@
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:layout_margin="@dimen/standard_margin"
                     />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/black"
+                android:background="@color/black_item"
                 android:alpha="0.2"/>
 
 
@@ -458,7 +458,7 @@
                     android:fontFamily="@font/tajwal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_item"
                     android:layout_margin="@dimen/standard_margin"
                     />
             </LinearLayout>
